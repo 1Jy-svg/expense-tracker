@@ -1,0 +1,19 @@
+<div class="mb-4 d-flex justify-content-between align-items-center">
+  <button type="button" routerLink="/expense-form" class="btn btn-primary">Add Expenses</button>
+  <h5 class="fw-bold"> Total Expenses: <strong class="text-success">$180</strong></h5>
+</div>
+<div class="d-flex flex-column gap-3">
+@for(expense of expenses; track $index){
+  <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{expense.title}}</h5>
+        <h2 class="fw-bold text-primary">${{expense.price}}</h2>
+        <p class="card-text">{{expense.description}}</p>
+        <div class="d-flex gap-2">
+          <button class="btn btn-sm btn-success" (click)="editExpense(expense.key!)">Edit</button>
+          <button class="btn btn-sm btn-danger" (click)="removeExpense(expense.key!)">Remove</button>
+      </div>
+      </div>
+    </div>
+  }
+</div>

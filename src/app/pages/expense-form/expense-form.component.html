@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-lg-6">
+        <h4>Expense Form</h4>
+        <form [formGroup]="expenseForm" (submit)="onSubmit()">
+            <div class="mb-3">
+                <label for="price" class="form-label">Price</label>
+                <input type="text" class="form-control" id="price" placeholder="Price"  formControlName="price">
+                @if (expenseForm.get('price')?.hasError('required')&&expenseForm.get('price')?.touched){
+                    <div class="form-text text-danger fw-bold">Price is required.</div>
+                }
+              </div>
+              <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" placeholder="Title" formControlName="title">
+                @if (expenseForm.get('title')?.hasError('required')&&expenseForm.get('title')?.touched){
+                    <div class="form-text text-danger fw-bold">Title is required.</div>
+                }
+              </div>
+              <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="description"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+        
+    </div>
+</div>
